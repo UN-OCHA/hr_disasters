@@ -83,7 +83,7 @@ function hr_disasters_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_hr_disaster_pattern';
-  $strongarm->value = '[node:og-group-ref:url:path]/disasters/[node:title]';
+  $strongarm->value = '[node:og-group-ref:url:path]/disaster/[node:title]';
   $export['pathauto_node_hr_disaster_pattern'] = $strongarm;
 
   return $export;
