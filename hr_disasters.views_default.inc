@@ -45,7 +45,6 @@ function hr_disasters_views_default_views() {
   $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
-  $handler->display->display_options['arguments']['og_group_ref_target_id']['default_action'] = 'not found';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['default_argument_type'] = 'og_context';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['og_group_ref_target_id']['summary']['format'] = 'default_summary';

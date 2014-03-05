@@ -10,6 +10,34 @@
 function hr_disasters_field_default_field_bases() {
   $field_bases = array();
 
+  // Exported field_base: 'field_disaster_status'
+  $field_bases['field_disaster_status'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_disaster_status',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'ongoing' => 'Ongoing',
+        'over' => 'Over',
+      ),
+      'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_disasters'
   $field_bases['field_disasters'] = array(
     'active' => 1,
@@ -54,34 +82,6 @@ function hr_disasters_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'entityreference',
-  );
-
-  // Exported field_base: 'field_disaster_status'
-  $field_bases['field_disaster_status'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_disaster_status',
-    'foreign keys' => array(),
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        'ongoing' => 'Ongoing',
-        'over' => 'Over',
-      ),
-      'allowed_values_function' => '',
-      'entity_translation_sync' => FALSE,
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_glide_number'
