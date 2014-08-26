@@ -46,6 +46,7 @@ features[og_features_permission][] = node:hr_operation:update any hr_disaster co
 features[og_features_permission][] = node:hr_operation:update own hr_disaster content
 features[og_features_permission][] = node:hr_operation:view any unpublished hr_disaster content
 features[taxonomy][] = hr_glide_type
+features[variable][] = entity_translation_settings_node__hr_disaster
 features[variable][] = field_bundle_settings_node__hr_disaster
 features[variable][] = language_content_type_hr_disaster
 features[variable][] = menu_options_hr_disaster

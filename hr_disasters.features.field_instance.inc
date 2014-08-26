@@ -454,8 +454,8 @@ function hr_disasters_field_default_field_instances() {
   t('Description');
   t('GLIDE Number');
   t('GLIDE Type');
-  t('Groups audience');
   t('Name');
+  t('Space(s)');
   t('Status');
   t('Title');
 
