@@ -32,16 +32,16 @@ function hr_disasters_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'path' => array(
-          'weight' => '10',
+          'weight' => '11',
         ),
         'redirect' => array(
-          'weight' => '9',
+          'weight' => '10',
         ),
         'language' => array(
-          'weight' => '8',
+          'weight' => '0',
         ),
         'og_menu' => array(
-          'weight' => '5',
+          'weight' => '7',
         ),
       ),
       'display' => array(),
