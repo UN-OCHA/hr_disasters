@@ -27,7 +27,7 @@ function hr_disasters_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        'alert' => 'Alert'
+        'alert' => 'Alert',
         'current' => 'Ongoing',
         'past' => 'Past disaster',
       ),
