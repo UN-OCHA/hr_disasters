@@ -38,9 +38,9 @@ function _hr_disasters_reliefweb_disaster($id) {
     ->entityCondition('bundle', 'hr_disaster')
     ->fieldCondition('field_glide_number', 'value', $glide, '=')
     ->execute();
-  if (!empty($result['node'])) {
+  if (!empty($results['node'])) {
     // Disaster already exists, simply update
-    $nid = reset(array_keys($result['node']));
+    $nid = reset(array_keys($results['node']));
     $node = node_load($nid);
     $node = _hr_disasters_reliefweb_disaster_map($node, $fields);
     node_save($node);
