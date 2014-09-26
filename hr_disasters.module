@@ -4,6 +4,8 @@
  * Code for the Disasters feature.
  */
 
+define('HR_DISASTERS_RELIEFWEB_API', 'http://api.rwlabs.org/v1/disasters');
+
 include_once 'hr_disasters.features.inc';
 
 /**
@@ -22,5 +24,12 @@ function hr_disasters_og_features_registry() {
   );
   $registry[$feature->id] = $feature;
   return $registry;
+}
+
+function _hr_disasters_reliefweb_disaster($id) {
+  $url = HR_DISASTERS_RELIEFWEB_API.'/'.$id;
+  $json_encoded = file_get_contents($url);
+  $disaster = json_decode($json);
+  debug($disaster);
 }
 
