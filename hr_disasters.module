@@ -30,6 +30,36 @@ function _hr_disasters_reliefweb_disaster($id) {
   $url = HR_DISASTERS_RELIEFWEB_API.'/'.$id;
   $json = file_get_contents($url);
   $disaster = json_decode($json);
-  return $disaster;
+  $fields = $disaster->data[0]->fields;
+  $glide = $fields->glide;
+  // Does this disaster already exist ?
+  $query = new EntityFieldQuery();
+  $results = $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'hr_disaster')
+    ->fieldCondition('field_glide_number', 'value', $glide, '=')
+    ->execute();
+  if (!empty($result['node'])) {
+    // Disaster already exists, simply update
+    $nid = reset(array_keys($result['node']));
+    $node = node_load($nid);
+    $node = _hr_disasters_reliefweb_disaster_map($node, $fields);
+    node_save($node);
+  }
+  else {
+    $node = new stdClass();
+    $node->type = 'hr_disaster';
+    $node->language = 'en';
+    $node = _hr_disasters_reliefweb_disaster_map($node, $fields);
+    node_save($node);
+  }
 }
 
+function _hr_disasters_reliefweb_disaster_map($node, $fields) {
+  $type = reset(taxonomy_get_term_by_name($fields->type[0]->name, 'hr_glide_type'));
+  $node->title = $fields->name;
+  $node->field_glide_number = array(LANGUAGE_NONE => array(0 => array('value' => $fields->glide)));
+  $node->field_glide_type = array(LANGUAGE_NONE => array(0 => array('target_id' => $type->tid)));
+  $node->field_disaster_status = array(LANGUAGE_NONE => array(0 => array('value' => $fields->status)));
+  $node->body = array(LANGUAGE_NONE => array(0 => array('value' => $fields->description, 'format' => 'panopoly_wysiwyg_text')));
+  return $node;
+}
