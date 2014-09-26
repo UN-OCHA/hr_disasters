@@ -137,7 +137,7 @@ function hr_disasters_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_glide_number',
     'label' => 'GLIDE Number',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'text_processing' => 0,
