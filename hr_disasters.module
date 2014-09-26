@@ -26,6 +26,15 @@ function hr_disasters_og_features_registry() {
   return $registry;
 }
 
+function hr_disasters_reliefweb_disasters() {
+  $url = HR_DISASTERS_RELIEFWEB_API.'?sort[]=date:desc&limit=50';
+  $json = file_get_contents($url);
+  $disasters = json_decode($json);
+  foreach ($disasters->data as $data) {
+    _hr_disasters_reliefweb_disaster($data->id);
+  }
+}
+
 function _hr_disasters_reliefweb_disaster($id) {
   $url = HR_DISASTERS_RELIEFWEB_API.'/'.$id;
   $json = file_get_contents($url);
