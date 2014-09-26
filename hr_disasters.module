@@ -63,5 +63,30 @@ function _hr_disasters_reliefweb_disaster_map($node, $fields) {
   $node->body = array('en' => array(0 => array('value' => $fields->description, 'format' => 'panopoly_wysiwyg_text')));
   $node->created = strtotime($fields->date->created);
   $node->path = array('pathauto' => TRUE);
+  $node->og_group_ref = array();
+  $i = 0;
+  foreach ($fields->country as $country) {
+    // Make sure country exists as an operation
+    $nid = _hr_disasters_get_operation_by_name($country->name);
+    if (!empty($nid)) {
+      $node->og_group_ref[LANGUAGE_NONE][$i]['target_id'] = $nid;
+      $i++;
+    }
+  }
+    
   return $node;
+}
+
+function _hr_disasters_get_operation_by_name($name) {
+  $query = new EntityFieldQuery();
+  $results = $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'hr_operation')
+    ->propertyCondition('title', $name)
+    ->execute();
+  if (!empty($results['node'])) {
+    return reset(array_keys($results['node']));
+  }
+  else {
+    return NULL;
+  }
 }
