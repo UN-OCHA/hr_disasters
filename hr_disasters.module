@@ -89,6 +89,7 @@ function _hr_disasters_reliefweb_disaster_map($node, $fields) {
   $node->body = array('en' => array(0 => array('value' => $fields->description, 'format' => 'panopoly_wysiwyg_text')));
   $node->created = strtotime($fields->date->created);
   $node->path = array('pathauto' => TRUE);
+  $node->uid = 1;
   $node->og_group_ref = array();
   $i = 0;
   foreach ($fields->country as $country) {
