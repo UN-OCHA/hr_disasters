@@ -31,14 +31,14 @@ function hr_disasters_og_features_registry() {
  * Updates the latest 50 disaster items taken from Reliefweb
  */
 function hr_disasters_cron() {
-  hr_disasters_reliefweb_disasters();
+  hr_disasters_reliefweb_disasters(50);
 }
 
 /**
- * Updates the latest 50 disaster items taken from Reliefweb
+ * Updates the latest number disaster items taken from Reliefweb
  */
-function hr_disasters_reliefweb_disasters() {
-  $url = HR_DISASTERS_RELIEFWEB_API.'?sort[]=date:desc&limit=50';
+function hr_disasters_reliefweb_disasters($number) {
+  $url = HR_DISASTERS_RELIEFWEB_API.'?sort[]=date:desc&limit='.$number;
   $json = file_get_contents($url);
   $disasters = json_decode($json);
   foreach ($disasters->data as $data) {
