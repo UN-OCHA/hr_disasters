@@ -26,17 +26,29 @@ function hr_disasters_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'facetapi-Inq9iHy8F01ng3heTk70PTVUV4G1i5Fh' => array(
-          'module' => 'facetapi',
-          'delta' => 'Inq9iHy8F01ng3heTk70PTVUV4G1i5Fh',
+        'current_search-hr_current_search' => array(
+          'module' => 'current_search',
+          'delta' => 'hr_current_search',
           'region' => 'sidebar_first',
           'weight' => '-10',
+        ),
+        'facetapi-djs1o6VrivuNykMYeYyvXVKT480Y01tL' => array(
+          'module' => 'facetapi',
+          'delta' => 'djs1o6VrivuNykMYeYyvXVKT480Y01tL',
+          'region' => 'sidebar_first',
+          'weight' => '-9',
         ),
         'facetapi-XEALhc8ysZYJYeBGGMrztUfQM1GPRMcl' => array(
           'module' => 'facetapi',
           'delta' => 'XEALhc8ysZYJYeBGGMrztUfQM1GPRMcl',
           'region' => 'sidebar_first',
-          'weight' => '-9',
+          'weight' => '-8',
+        ),
+        'facetapi-Inq9iHy8F01ng3heTk70PTVUV4G1i5Fh' => array(
+          'module' => 'facetapi',
+          'delta' => 'Inq9iHy8F01ng3heTk70PTVUV4G1i5Fh',
+          'region' => 'sidebar_first',
+          'weight' => '-7',
         ),
       ),
     ),
