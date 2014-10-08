@@ -4,6 +4,7 @@ core = 7.x
 package = Humanitarianresponse
 dependencies[] = context
 dependencies[] = ctools
+dependencies[] = current_search
 dependencies[] = entity
 dependencies[] = entityreference
 dependencies[] = facetapi
