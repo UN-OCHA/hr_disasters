@@ -62,11 +62,14 @@ function _hr_disasters_reliefweb_disaster($id) {
     ->fieldCondition('field_glide_number', 'value', $glide, '=')
     ->execute();
   if (!empty($results['node'])) {
-    // Disaster already exists, simply update
-    $nid = reset(array_keys($results['node']));
-    $node = node_load($nid);
-    $node = _hr_disasters_reliefweb_disaster_map($node, $fields);
-    node_save($node);
+    // HACK to keep this disaster not in sync with Reliefweb, since we "extended" it to multiple countries
+    if ($glide != 'EP-2014-000116-GHA') {
+      // Disaster already exists, simply update
+      $nid = reset(array_keys($results['node']));
+      $node = node_load($nid);
+      $node = _hr_disasters_reliefweb_disaster_map($node, $fields);
+      node_save($node);
+    }
   }
   else {
     $node = new stdClass();
