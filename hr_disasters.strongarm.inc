@@ -136,6 +136,28 @@ function hr_disasters_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'og_features_settings_node_hr_disaster';
+  $strongarm->value = array(
+    'acc_incidents' => '0',
+    'hr_assessments' => '2',
+    'hr_contacts' => '2',
+    'hr_datasets' => '2',
+    'hr_disasters' => '0',
+    'hr_documents' => '2',
+    'hr_events' => '2',
+    'hr_fundings' => '0',
+    'hr_infographics' => '2',
+    'hr_news' => '2',
+    'hr_offices' => '0',
+    'hr_pages' => '2',
+    'hr_users' => '0',
+    'hr_webforms' => '3',
+  );
+  $export['og_features_settings_node_hr_disaster'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'panelizer_node:hr_disaster_allowed_types';
   $strongarm->value = array(
     'bean_pane-fts_visualization' => 'bean_pane-fts_visualization',

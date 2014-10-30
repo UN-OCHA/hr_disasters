@@ -62,6 +62,7 @@ features[variable][] = menu_parent_hr_disaster
 features[variable][] = node_options_hr_disaster
 features[variable][] = node_preview_hr_disaster
 features[variable][] = node_submitted_hr_disaster
+features[variable][] = og_features_settings_node_hr_disaster
 features[variable][] = panelizer_defaults_node_hr_disaster
 features[variable][] = pathauto_node_hr_disaster_pattern
 features[views_view][] = hr_disasters
