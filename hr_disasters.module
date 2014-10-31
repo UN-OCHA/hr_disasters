@@ -84,7 +84,8 @@ function _hr_disasters_reliefweb_disaster($id) {
  * Helper function: maps disaster fields from Reliefweb API to hr_disaster nodes
  */
 function _hr_disasters_reliefweb_disaster_map($node, $fields) {
-  $type = reset(taxonomy_get_term_by_name($fields->type[0]->name, 'hr_glide_type'));
+  $glide_type = taxonomy_get_term_by_name($fields->type[0]->name, 'hr_glide_type');
+  $type = reset($glide_type);
   $node->title = $fields->name;
   $node->field_glide_number = array(LANGUAGE_NONE => array(0 => array('value' => $fields->glide)));
   $node->field_glide_type = array(LANGUAGE_NONE => array(0 => array('target_id' => $type->tid)));
