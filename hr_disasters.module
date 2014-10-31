@@ -117,7 +117,8 @@ function _hr_disasters_get_operation_by_name($name) {
     ->propertyCondition('title', $name)
     ->execute();
   if (!empty($results['node'])) {
-    return reset(array_keys($results['node']));
+    $keys = array_keys($results['node']);
+    return reset($keys);
   }
   else {
     return NULL;
