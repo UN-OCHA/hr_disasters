@@ -65,7 +65,8 @@ function _hr_disasters_reliefweb_disaster($id) {
     // HACK to keep this disaster not in sync with Reliefweb, since we "extended" it to multiple countries
     if ($glide != 'EP-2014-000116-GHA' && $glide != 'OT-2011-000205-NER' && $glide != 'EP-2014-000041-GIN') {
       // Disaster already exists, simply update
-      $nid = reset(array_keys($results['node']));
+      $nids = array_keys($results['node']);
+      $nid = reset($nids);
       $node = node_load($nid);
       $node = _hr_disasters_reliefweb_disaster_map($node, $fields);
       node_save($node);
