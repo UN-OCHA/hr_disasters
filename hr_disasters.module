@@ -60,6 +60,7 @@ function _hr_disasters_reliefweb_disaster($id) {
   $results = $query->entityCondition('entity_type', 'node')
     ->entityCondition('bundle', 'hr_disaster')
     ->fieldCondition('field_glide_number', 'value', $glide, '=')
+    ->addTag('DANGEROUS_ACCESS_CHECK_OPT_OUT')
     ->execute();
   if (!empty($results['node'])) {
     // HACK to keep this disaster not in sync with Reliefweb, since we "extended" it to multiple countries
