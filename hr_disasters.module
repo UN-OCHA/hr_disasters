@@ -57,30 +57,32 @@ function _hr_disasters_reliefweb_disaster($id) {
     $disaster = json_decode($json);
     $fields = $disaster->data[0]->fields;
     $glide = $fields->glide;
-    // Does this disaster already exist ?
-    $query = new EntityFieldQuery();
-    $results = $query->entityCondition('entity_type', 'node')
-      ->entityCondition('bundle', 'hr_disaster')
-      ->fieldCondition('field_glide_number', 'value', $glide, '=')
-      ->addTag('DANGEROUS_ACCESS_CHECK_OPT_OUT')
-      ->execute();
-    if (!empty($results['node'])) {
-      // HACK to keep this disaster not in sync with Reliefweb, since we "extended" it to multiple countries
-      if ($glide != 'EP-2014-000116-GHA' && $glide != 'OT-2011-000205-NER' && $glide != 'EP-2014-000041-GIN') {
-        // Disaster already exists, simply update
-        $nids = array_keys($results['node']);
-        $nid = reset($nids);
-        $node = node_load($nid);
+    if (!empty($glide)) {
+      // Does this disaster already exist ?
+      $query = new EntityFieldQuery();
+      $results = $query->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'hr_disaster')
+        ->fieldCondition('field_glide_number', 'value', $glide, '=')
+        ->addTag('DANGEROUS_ACCESS_CHECK_OPT_OUT')
+        ->execute();
+      if (!empty($results['node'])) {
+        // HACK to keep this disaster not in sync with Reliefweb, since we "extended" it to multiple countries
+        if ($glide != 'EP-2014-000116-GHA' && $glide != 'OT-2011-000205-NER' && $glide != 'EP-2014-000041-GIN') {
+          // Disaster already exists, simply update
+          $nids = array_keys($results['node']);
+          $nid = reset($nids);
+          $node = node_load($nid);
+          $node = _hr_disasters_reliefweb_disaster_map($node, $fields);
+          node_save($node);
+        }
+      }
+      else {
+        $node = new stdClass();
+        $node->type = 'hr_disaster';
+        $node->language = 'en';
         $node = _hr_disasters_reliefweb_disaster_map($node, $fields);
         node_save($node);
       }
-    }
-    else {
-      $node = new stdClass();
-      $node->type = 'hr_disaster';
-      $node->language = 'en';
-      $node = _hr_disasters_reliefweb_disaster_map($node, $fields);
-      node_save($node);
     }
   }
 }
