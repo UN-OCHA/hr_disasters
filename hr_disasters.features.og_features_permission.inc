@@ -36,7 +36,7 @@ function hr_disasters_og_features_default_permissions() {
     'roles' => array(
       'manager' => 'manager',
     ),
-  );  
+  );
 
   // Exported og permission: 'node:hr_operation:access authoring options of hr_disaster content'
   $permissions['node:hr_operation:access authoring options of hr_disaster content'] = array(

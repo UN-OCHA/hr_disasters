@@ -211,6 +211,59 @@ function hr_disasters_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-hr_disaster-field_reliefweb_id'
+  $field_instances['node-hr_disaster-field_reliefweb_id'] = array(
+    'bundle' => 'hr_disaster',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 8,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_reliefweb_id',
+    'label' => 'Reliefweb ID',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 12,
+    ),
+  );
+
   // Exported field_instance: 'node-hr_disaster-group_access'
   $field_instances['node-hr_disaster-group_access'] = array(
     'bundle' => 'hr_disaster',
@@ -586,6 +639,7 @@ function hr_disasters_field_default_field_instances() {
   t('Group');
   t('Group visibility');
   t('Name');
+  t('Reliefweb ID');
   t('Space(s)');
   t('Status');
   t('Title');
