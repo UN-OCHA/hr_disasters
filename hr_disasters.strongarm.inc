@@ -1760,7 +1760,7 @@ function hr_disasters_strongarm() {
     'entity_view-user' => 0,
     'fieldable_panels_pane-hr_contacts' => 'fieldable_panels_pane-hr_contacts',
     'fieldable_panels_pane-hr_documents' => 'fieldable_panels_pane-hr_documents',
-    'fieldable_panels_pane-hr_users' => 'fieldable_panels_pane-hr_users',
+    'fieldable_panels_pane-hr_users' => 0,
     'fieldable_panels_pane-fieldable_panels_pane' => 0,
     'fieldable_panels_pane-hr_assessments' => 0,
     'fieldable_panels_pane-hr_infographics' => 'fieldable_panels_pane-hr_infographics',
