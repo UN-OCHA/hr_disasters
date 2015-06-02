@@ -31,7 +31,7 @@ function hr_disasters_og_features_registry() {
  * Updates the latest 50 disaster items taken from Reliefweb
  */
 function hr_disasters_cron() {
-  //hr_disasters_reliefweb_disasters(50);
+  hr_disasters_reliefweb_disasters(50);
 }
 
 /**
